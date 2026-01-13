@@ -1,0 +1,192 @@
+/* Google Font - Inter */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* Reset ve Genel Stiller */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Ana Uygulama Container */
+.app {
+  min-height: 100vh;
+  padding: 2rem;
+  transition: background 0.8s ease;
+}
+
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Dinamik Arka Plan Stilleri */
+
+/* Varsayılan - Mor/Mavi Gradient */
+.app.default {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+/* Güneşli - Sarı/Turuncu Gradient */
+.app.sunny {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 50%, #fda085 100%);
+  animation: sunnyPulse 5s ease-in-out infinite;
+}
+
+@keyframes sunnyPulse {
+
+  0%,
+  100% {
+    filter: brightness(1);
+  }
+
+  50% {
+    filter: brightness(1.05);
+  }
+}
+
+/* Bulutlu - Gri Gradient */
+.app.cloudy {
+  background: linear-gradient(135deg, #8e9eab 0%, #eef2f3 50%, #8e9eab 100%);
+}
+
+/* Yağmurlu - Mavi/Gri Gradient */
+.app.rainy {
+  background: linear-gradient(135deg, #1a2980 0%, #26d0ce 100%);
+  position: relative;
+}
+
+.app.rainy::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background:
+    repeating-linear-gradient(transparent 0px,
+      transparent 20px,
+      rgba(255, 255, 255, 0.03) 20px,
+      rgba(255, 255, 255, 0.03) 40px);
+  pointer-events: none;
+  animation: rain 0.5s linear infinite;
+}
+
+@keyframes rain {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 20px 40px;
+  }
+}
+
+/* Karlı - Beyaz/Mavi Gradient */
+.app.snowy {
+  background: linear-gradient(135deg, #e6dada 0%, #274046 100%);
+  position: relative;
+}
+
+.app.snowy::before {
+  content: '❄';
+  position: absolute;
+  top: 10%;
+  left: 20%;
+  font-size: 2rem;
+  opacity: 0.3;
+  animation: snowfall 4s linear infinite;
+}
+
+.app.snowy::after {
+  content: '❄';
+  position: absolute;
+  top: 5%;
+  right: 30%;
+  font-size: 1.5rem;
+  opacity: 0.2;
+  animation: snowfall 6s linear infinite 2s;
+}
+
+@keyframes snowfall {
+  0% {
+    transform: translateY(-100px) rotate(0deg);
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 0.3;
+  }
+
+  80% {
+    opacity: 0.3;
+  }
+
+  100% {
+    transform: translateY(100vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* Fırtınalı - Koyu Mor/Mavi */
+.app.stormy {
+  background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+  animation: lightning 3s ease-in-out infinite;
+}
+
+@keyframes lightning {
+
+  0%,
+  100% {
+    filter: brightness(1);
+  }
+
+  50% {
+    filter: brightness(1);
+  }
+
+  52% {
+    filter: brightness(1.3);
+  }
+
+  54% {
+    filter: brightness(1);
+  }
+}
+
+/* Sisli - Açık Gri */
+.app.foggy {
+  background: linear-gradient(135deg, #bdc3c7 0%, #2c3e50 100%);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .app {
+    padding: 1rem;
+  }
+}
+
+/* Scrollbar Stili */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
